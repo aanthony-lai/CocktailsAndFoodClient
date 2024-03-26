@@ -1,0 +1,32 @@
+.productContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.productCard {
+    position: relative;
+    width: 100%;
+    height: 25rem;
+    border-bottom: solid 1px;
+}
+    .productCard .productImg {
+        width: 100%;
+        height: 100%;
+    }
+    .productCard h3 {
+        margin-left: 2rem;
+        color: white;
+        position: absolute;
+    }
+
+.categoryBar {
+    position: sticky;
+    top: 7rem;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 2rem;
+    background-color: #dbd8e3;
+}

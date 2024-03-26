@@ -1,0 +1,15 @@
+.productCard {
+    position: relative;
+    width: 100%;
+    height: 25rem;
+    border-bottom: solid 1px;
+}
+    .productCard .productImg {
+        width: 100%;
+        height: 100%;
+    }
+    .productCard h3 {
+        margin-left: 1rem;
+        color: white;
+        position: absolute;
+    }
