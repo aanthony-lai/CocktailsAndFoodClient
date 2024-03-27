@@ -4,11 +4,11 @@ import { ShoppingCartContext } from "../App";
 import { Link } from "react-router-dom";
 
 export const CartBar = () => {
-  const { cartItems } = useContext(ShoppingCartContext);
+  const { cartItems, cartCount } = useContext(ShoppingCartContext);
 
   return (
     <div className={styles.cart}>
-      <Link to='/cart'>{cartItems.length}</Link>
+      <Link to='/cart'>{cartCount}</Link>
     </div>
   );
 };

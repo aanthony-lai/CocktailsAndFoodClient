@@ -21,7 +21,7 @@ export const AddProduct = ({itemId, image}: addProductProps) => {
       image: image,
       quantity: count
     }
-    AddToCart(cartItem);
+    AddToCart(cartItem, itemId);
   };
 
   const Remove = () => {

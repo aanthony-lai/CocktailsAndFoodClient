@@ -26,6 +26,12 @@ export const Food = () => {
         ))}
         <CartBar />
       </section>
+      <section className={styles.productContainer}>
+        <div className={styles.categoryBar}>Meat</div>
+        {dishes.map((dish) => (
+          <FoodCard {...dish}/>
+        ))}
+        </section>
     </main>
   );
 };
