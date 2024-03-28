@@ -1,11 +1,14 @@
+import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Food } from "./pages/Food";
 import { Beverages } from "./pages/Beverages";
 import { Sides } from "./pages/Sides";
-import "./App.css";
 import { createContext, useState } from "react";
 import { CartItem } from "./types/CartItemType";
 import { CartContextType } from "./types/GlobalContextTypes";
+import { Dish } from "./types/FoodType";
+import { Drink } from "./types/DrinksType";
+import { Cart } from "./pages/Cart";
 
 export const ShoppingCartContext = createContext<CartContextType>({
   cartCount: 0,
@@ -13,6 +16,7 @@ export const ShoppingCartContext = createContext<CartContextType>({
   AddToCart: (item: CartItem, itemId: string) => {},
   RemoveFromCart: (itemId: string) => {},
 });
+
 
 function App() {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
@@ -25,28 +29,32 @@ function App() {
       );
 
       if (itemIndex !== -1) {
-        setCartCount(currentCount => cartCount + 1);
+        setCartCount((currentCount) => cartCount + 1);
         return currentItems.map((item, index) =>
           index === itemIndex ? { ...item, quantity: item.quantity + 1 } : item
         );
       } else {
-        setCartCount(currentCount => cartCount + 1);
+        setCartCount((currentCount) => cartCount + 1);
         return [...currentItems, { ...item, quantity: 1 }];
       }
     });
   };
 
-  const RemoveFromCart = (itemId: string,): void => {
+  const RemoveFromCart = (itemId: string): void => {
     setCartItems((currentItems) => {
       const itemIndex = currentItems.findIndex(
         (item) => item.itemId === itemId
       );
 
       if (itemIndex !== -1) {
-        setCartCount(currentCount => cartCount - 1);
-        return currentItems.map((item, index) =>
-          index === itemIndex ? { ...item, quantity: item.quantity - 1 } : item
-        ).filter((item) => item.quantity > 0);
+        setCartCount((currentCount) => cartCount - 1);
+        return currentItems
+          .map((item, index) =>
+            index === itemIndex
+              ? { ...item, quantity: item.quantity - 1 }
+              : item
+          )
+          .filter((item) => item.quantity > 0);
       } else {
         return [...currentItems];
       }
@@ -55,12 +63,12 @@ function App() {
 
   return (
     <Router>
-      <ShoppingCartContext.Provider
-        value={{ cartCount, cartItems, AddToCart, RemoveFromCart }}>
+      <ShoppingCartContext.Provider value={{cartCount, cartItems, AddToCart, RemoveFromCart}}>
         <Routes>
           <Route path="/" element={<Food />} />
           <Route path="/beverages" element={<Beverages />} />
           <Route path="/sides" element={<Sides />} />
+          <Route path="/cart" element={<Cart />}/>
         </Routes>
       </ShoppingCartContext.Provider>
     </Router>

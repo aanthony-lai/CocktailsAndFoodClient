@@ -1,0 +1,40 @@
+.closeIcon {
+    height: 2rem;
+}
+
+.cartItem {
+    display: flex;
+    align-items: center;
+    width: 99%;
+    height: 10rem;
+}
+    .productImage {
+        margin-left: 0.5rem;
+        height: 70%;
+        width: 30%;
+        border-radius: 50%;
+    }
+
+.group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    width: 30%;
+}
+
+.adjustQuantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 40%;
+}
+    .adjustQuantity img {
+        height: 1rem;
+    }
+    .adjustQuantity p {
+        margin: 0;
+        font-size: 20px;
+        padding-bottom: 0.5rem;
+    }

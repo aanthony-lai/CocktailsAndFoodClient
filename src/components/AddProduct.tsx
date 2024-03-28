@@ -2,8 +2,8 @@ import { useState, useContext } from "react";
 import styles from "./AddProduct.module.css";
 import plus from "../assets/plus.png";
 import minus from "../assets/minus.png";
-import { ShoppingCartContext } from "../App";
 import { CartItem } from "../types/CartItemType";
+import { ShoppingCartContext } from "../App";
 
 interface addProductProps {
   itemId: string;
@@ -12,7 +12,7 @@ interface addProductProps {
 
 export const AddProduct = ({itemId, image}: addProductProps) => {
   const [count, setCount] = useState<number>(0);
-  const {cartItems, AddToCart, RemoveFromCart} = useContext(ShoppingCartContext);
+  const {AddToCart, RemoveFromCart} = useContext(ShoppingCartContext);
 
   const Add = () => {
     setCount(count + 1);

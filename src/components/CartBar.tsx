@@ -4,7 +4,7 @@ import { ShoppingCartContext } from "../App";
 import { Link } from "react-router-dom";
 
 export const CartBar = () => {
-  const { cartItems, cartCount } = useContext(ShoppingCartContext);
+  const { cartCount } = useContext(ShoppingCartContext);
 
   return (
     <div className={styles.cart}>

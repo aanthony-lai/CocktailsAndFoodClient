@@ -6,6 +6,7 @@ export const FoodCard = ( props: Dish ) => {
     return(
         <div className={styles.productCard}>
             <h3>{props.title}</h3>
+            <p>{props.description}</p>
             <AddProduct itemId={props._id} image={props.imageUrl}/>
             <img src={props.imageUrl} className={styles.productImg} />
         </div>
