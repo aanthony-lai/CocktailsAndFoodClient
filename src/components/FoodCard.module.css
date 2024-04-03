@@ -16,6 +16,7 @@
     .productCard p {
         margin-left: 1rem;
         margin-top: 3rem;
+        padding-right: 1rem;
         color: white;
         position: absolute;
         font-weight: 700;

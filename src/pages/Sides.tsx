@@ -9,7 +9,7 @@ export const Sides = () => {
       <Navbar />
       <section className={styles.productContainer}>
         <div className={styles.categoryBar}>Category</div>
-        {numbers.map((element) => (
+        {numbers.map(() => (
           <div className={styles.productCard}></div>
         ))}
       </section>

@@ -1,26 +1,41 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import styles from "./AddProduct.module.css";
 import plus from "../assets/plus.png";
 import minus from "../assets/minus.png";
 import { CartItem } from "../types/CartItemType";
-import { ShoppingCartContext } from "../App";
+// import { ShoppingCartContext } from "../App";
+import { ShoppingCartContext } from "../ShoppingCartProvider";
 
 interface addProductProps {
   itemId: string;
   image: string;
+  name: string;
+  price: number;
 }
 
-export const AddProduct = ({itemId, image}: addProductProps) => {
+export const AddProduct = ({itemId, image, name, price}: addProductProps) => {
   const [count, setCount] = useState<number>(0);
-  const {AddToCart, RemoveFromCart} = useContext(ShoppingCartContext);
+  const {cartItems, AddToCart, RemoveFromCart} = useContext(ShoppingCartContext);
+  
+
+  useEffect(() => {
+    cartItems.map((item) => {
+      if (item.itemId === itemId) {
+        setCount(currentCount => currentCount = item.quantity);
+      }
+    }) 
+  }, []);
 
   const Add = () => {
-    setCount(count + 1);
     const cartItem: CartItem = {
       itemId: itemId,
       image: image,
-      quantity: count
+      quantity: count,
+      name: name,
+      singlePrice: price,
+      totalPrice: 0
     }
+    setCount(count + 1);
     AddToCart(cartItem, itemId);
   };
 

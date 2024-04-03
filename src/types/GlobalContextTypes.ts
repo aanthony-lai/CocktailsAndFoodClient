@@ -5,5 +5,6 @@ export type CartContextType = {
   cartItems: CartItem[];
   AddToCart: (item: CartItem, itemId: string) => void;
   RemoveFromCart: (itemId : string) => void;
+  ClearCart: () => void;
 }
 

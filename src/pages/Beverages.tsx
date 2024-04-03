@@ -1,12 +1,13 @@
 import { Navbar } from "../components/Navbar";
 import styles from "./Beverages.module.css";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { Drinks } from "../types/DrinksType";
 import { BeverageCard } from "../components/BeverageCard";
 import { CartBar } from "../components/CartBar";
 
 export const Beverages = () => {
-  const url = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink";
+  // const url = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink";
+  const url = "https://localhost:7009/api/drinks";
   const [drinks, setDrinks] = useState<Drinks | undefined>(undefined);
 
   useEffect(() => {
@@ -26,6 +27,7 @@ export const Beverages = () => {
               idDrink={drink.idDrink}
               strDrink={drink.strDrink}
               strDrinkThumb={drink.strDrinkThumb}
+              price={119}
             />
           ))}
           <CartBar />

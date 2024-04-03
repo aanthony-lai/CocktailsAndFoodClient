@@ -1,0 +1,90 @@
+.closeChat {
+    height: 2rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.chatLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    width: 5rem;
+    position: fixed;
+    right: 2rem;
+    bottom: 3rem;
+    border-radius: 50%;
+    background-color: #dbd8e3;
+}
+    .chatLogo img {
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+    }
+
+.chatWindow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    position: fixed;
+    left: 1.2rem;
+    bottom: 5rem;
+    height: 35rem;
+    width: 90%;
+    background-color: #dbd8e3;
+    border-radius: 20px;
+}
+
+.messageContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: absolute;
+    bottom: 4rem;
+    height: 27rem;
+    width: 100%;
+}
+
+.inputBox {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+    .inputBox input {
+        padding: 0 0.5rem 0 0.5rem;
+        width: 80%;
+        margin: 1rem 0 1rem 1rem;
+        height: 2rem;
+        border-radius: 10px;
+        border: solid 0.1px;
+    }
+    .inputBox img {
+        height: 1.5rem;
+        margin-right: 1rem;
+    }
+
+.user {
+    max-width: 50%;
+    display: inline-block;
+    align-self: flex-end;
+    font-size: 13px;
+    margin: 0 1rem 0 0;
+    padding: 1rem;
+    background-color: #bbe4e9;
+    border-radius: 20px;
+}
+
+.system {
+    display: inline-block;
+    align-self: flex-start;
+    width: 70%;
+    font-size: 13px;
+    margin: 0 0 0 1rem;
+    padding: 1rem;
+    background-color: #ececec;
+    border-radius: 20px;
+}

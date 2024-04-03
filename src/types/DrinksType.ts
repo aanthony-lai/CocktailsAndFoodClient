@@ -2,6 +2,7 @@ export type Drink = {
     strDrink: string;
     strDrinkThumb: string;
     idDrink: string;
+    price: number;
 }
 
 export type Drinks = {
