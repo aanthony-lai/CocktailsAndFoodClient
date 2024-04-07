@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export const Navbar = () => {
   return (
     <div className={styles.navContainer}>
-      <h1 className={styles.heading}>Kuchisabishii</h1>
+      <h1 className={styles.heading}>Food & Cocktails</h1>
       <nav className={styles.navBar}>
         <div className={styles.navItem}>
           <Link to="/">
