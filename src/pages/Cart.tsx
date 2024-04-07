@@ -1,15 +1,16 @@
 import { useContext, useEffect, useState } from "react";
-import styles from "./Cart.module.css";
-import { ShoppingCartContext } from "../ShoppingCartProvider";
-import closeIcon from "../assets/closeIcon.webp"
+import { ShoppingCartContext } from "../contexts/ShoppingCartProvider";
 import { Link } from "react-router-dom";
 import { Drinks } from "../types/DrinksType";
+import styles from "./Cart.module.css";
+import closeIcon from "../assets/closeIcon.webp"
 
 export const Cart = () => {
   const {cartItems, AddToCart, RemoveFromCart, ClearCart} = useContext(ShoppingCartContext);
   const [total, setTotal] = useState<number>();
   const [suggestions, setSuggestions] = useState<Drinks | undefined>(undefined);
-  const url = "https://localhost:7009/api/chat";
+  const suggestionsUrl = "https://localhost:7009/api/chat/suggestions";
+  const clearChatUrl = "https://localhost:7009/api/chat/clear"
 
   useEffect(() => {
     let grandTotal = 0;
@@ -20,19 +21,25 @@ export const Cart = () => {
   }, [AddToCart, RemoveFromCart]);
   
   useEffect(() => {
+    const ClearChat = () => {
+      try {
+        fetch(clearChatUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+      } catch (error) {
+        console.error("Failed to send message: ", error);
+      }
+    };
       const fetchData = async () => {
         try {
-          const response = await fetch(url, {
+          const response = await fetch(suggestionsUrl, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
-            }, body: JSON.stringify(
-              "It's very important that you only reply with a JSON response because your " + 
-              "answer is going to be deseriazlied to JavaScript objects. " + 
-              "Give me five random drink in a JSON response. Keep the original " + 
-              "names of the properties in drinks. " + 
-              "Do not change them. The format should like this: { drinks: [put the drinks in here] }."
-            ),
+            }
           });
           
           if (!response.ok) {
@@ -46,27 +53,9 @@ export const Cart = () => {
           console.error("Failed to send message: ", error);
         }
       };
-    
+      ClearChat();
       fetchData();
   }, []);
-  
-  // const ClearChat = async() => {
-  //   try {
-  //     const response = await fetch("https://localhost:7009/api/chat/clear", {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       }
-  //     });
-      
-  //     if (!response.ok) {
-  //       throw new Error(`HTTP error! status: ${response.status}`);
-  //     }
-      
-  //   } catch (error) {
-  //     console.error("Failed to send message: ", error);
-  //   }
-  // }
 
   if(cartItems.length === 0) {
     return(
@@ -102,8 +91,11 @@ export const Cart = () => {
             <button className={styles.orderButton} onClick={ClearCart}>Place order</button>
             <p className={styles.total}>Total: <strong>{total}</strong></p>
           </div>
-          {suggestions?.drinks.length === 0 ? 
-            <></> : 
+          {suggestions?.drinks === undefined ? 
+            <> 
+              <h1 className={styles.header}>Suggestions</h1>
+              <p className={styles.loading}>Loading...</p> 
+            </> : 
             <h1 className={styles.header}>Suggestions</h1>
           }
           <div className={styles.suggestions}>

@@ -3,8 +3,6 @@ import { AddProduct } from "./AddProduct";
 import styles from "./BeverageCard.module.css";
 
 export const BeverageCard = ( props: Drink ) => {
-  
-  
   return (
     <div className={styles.productCard}>
       <h3>{props.strDrink}</h3>

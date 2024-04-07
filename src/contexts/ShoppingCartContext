@@ -1,0 +1,11 @@
+import { createContext } from "react";
+import { CartContextType } from "../types/GlobalContextTypes"
+import { CartItem } from "../types/CartItemType";
+
+export const ShoppingCartContext = createContext<CartContextType>({
+      cartCount: 0,
+      cartItems: [],
+      AddToCart: (item: CartItem, itemId: string) => {},
+      RemoveFromCart: (itemId: string) => {},
+      ClearCart: () => {},
+    });

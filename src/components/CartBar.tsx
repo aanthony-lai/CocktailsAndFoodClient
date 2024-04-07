@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import styles from "./CartBar.module.css";
-import { ShoppingCartContext } from "../ShoppingCartProvider";
+import { ShoppingCartContext } from "../contexts/ShoppingCartProvider";
 import { Link } from "react-router-dom";
+import styles from "./CartBar.module.css";
 
 export const CartBar = () => {
   const { cartCount } = useContext(ShoppingCartContext);
@@ -16,6 +16,4 @@ export const CartBar = () => {
       </div>
     );
   } 
-
-  
 };

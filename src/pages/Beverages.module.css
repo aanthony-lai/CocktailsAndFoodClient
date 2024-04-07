@@ -1,14 +1,9 @@
-.productContainer {
-    display: flex;
-    flex-wrap: wrap;
-}
-
 .categoryBar {
     display: flex;
     justify-content: center;
     align-items: center;
     position: sticky;
-    top: 7rem;
+    top: 8.4rem;
     z-index: 1000;
     width: 100%;
     height: 2rem;

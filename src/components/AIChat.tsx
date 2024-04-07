@@ -51,7 +51,6 @@ export const Chat = () => {
       }
   }
 
-
   if (!isChat) {
     return (
       <div className={styles.chatLogo} onClick={() => setIsChat(true)}>

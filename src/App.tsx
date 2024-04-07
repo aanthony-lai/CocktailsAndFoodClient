@@ -4,7 +4,7 @@ import { Food } from "./pages/Food";
 import { Beverages } from "./pages/Beverages";
 import { Sides } from "./pages/Sides";
 import { Cart } from "./pages/Cart";
-import { ShoppingCartProvider } from "./ShoppingCartProvider";
+import { ShoppingCartProvider } from "./contexts/ShoppingCartProvider";
 
 function App() {
 

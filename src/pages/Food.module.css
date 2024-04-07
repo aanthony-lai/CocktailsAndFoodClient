@@ -1,34 +1,18 @@
-.productContainer {
-    display: flex;
-    flex-wrap: wrap;
+.container {
+    padding-top: 8.4rem;
 }
-
-.productCard {
-    position: relative;
-    width: 100%;
-    height: 25rem;
-    border-bottom: solid 1px;
-}
-    .productCard .productImg {
-        width: 100%;
-        height: 100%;
-    }
-    .productCard h3 {
-        margin-left: 2rem;
-        color: white;
-        position: absolute;
-    }
 
 .categoryBar {
-    position: sticky;
-    top: 7rem;
-    z-index: 1000;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: sticky;
+    top: 8.4rem;
+    z-index: 1000;
     width: 100%;
     height: 2rem;
     background-color: #dbd8e3;
     border-top: solid 1px;
     border-bottom: solid 1px;
 }
+

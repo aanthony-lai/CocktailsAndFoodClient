@@ -4,7 +4,7 @@ import plus from "../assets/plus.png";
 import minus from "../assets/minus.png";
 import { CartItem } from "../types/CartItemType";
 // import { ShoppingCartContext } from "../App";
-import { ShoppingCartContext } from "../ShoppingCartProvider";
+import { ShoppingCartContext } from "../contexts/ShoppingCartProvider";
 
 interface addProductProps {
   itemId: string;
